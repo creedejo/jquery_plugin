@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+		<title>Jquery Plugin Example</title>
+		<link href="css/styles.css" rel="stylesheet" />
+
+		<body>
+			<h2>The div below has been updated by the plugin using default settings</h2>
+			<div id="target"></div>
+			<hr />
+			<h2>The div below has been updated by the plugin using passed parameters</h2>
+			<div id="target2"></div>
+			<hr />
+			<h2>The div below has been updated by the plugin using passed parameters and calls a callback function</h2>
+			<div id="target3"></div>
+			<hr />
+			<h2>The div below has been updated by the plugin using passed parameters and calls a function as a parameter</h2>
+			<div id="target4"></div>
+			<hr />
+			<br><br>
+			<h1>The following call the plugin with additional methods:</h1>
+			<h2>The div below has been updated by the plugin calling the init function</h2>
+			<div id="target5"></div>
+			<hr />
+		</body>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/myPlugin.js"></script>
+		<script src="js/methodPlugin.js"></script>
+
+		<script>
+
+			$(document).ready(function(){
+
+				//SIMPLE PLUGIN  EXAMPLES
+				var $target = $("#target");
+				$target.myPlugin();
+
+				var $target2 = $("#target2");
+				$target2.myPlugin({"copy":"The settings have been updated.","background":"#000033","color":"#FFF"});
+
+				var $target3 = $("#target3");
+				$target3.myPlugin({"copy":"The settings have been updated.","background":"#333","color":"#FFF"},function(){
+					appendText($target3," Also, this text has been appended.");
+				});
+
+				var $target4 = $("#target4");
+				$target4.myPlugin({"copy":"The settings have been updated.","background":"#666666","color":"#FFF",complete:function(){
+					appendText($target4," Also, the 'complete' function has been called.");
+				}});
+
+
+
+				//PLUGIN WITH METHODS
+				var $target5 = $("#target5");
+				$target5.methodPlugin({"copy":"The settings have been updated.","background":"#666666","color":"#FFF"});
+
+				//now call the append method
+				$target5.methodPlugin("appendDefaultText");
+
+				//and append some text as a paramater
+				$target5.methodPlugin("appendText","And some additional text has been added too.");
+
+			});
+
+			function appendText($tar,txt){
+				$tar.append(txt);
+			}
+
+		</script>
+
+
+</html>

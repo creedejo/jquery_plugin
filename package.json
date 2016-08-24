@@ -1,0 +1,11 @@
+{
+  "name": "jquery_plugin",
+  "version": "1.0.0",
+  "description": "This is an example of how to write a simple jQuery plugin",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Creeden",
+  "license": "ISC"
+}

@@ -1,0 +1,18 @@
+body{
+	font-family:Arial;
+}
+
+h1{
+	font-size: 18px;
+}
+
+h2{
+	font-size: 16px;
+	color:#333;
+}
+
+div{
+	padding:12px;
+	font-size:14px;
+	margin-bottom:30px;
+}
